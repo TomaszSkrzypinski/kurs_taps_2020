@@ -2,23 +2,30 @@ import requests
 from datetime import datetime
 import time
 
+from selenium.common.exceptions import TimeoutException
+
 
 def exchange_rate_checker():
-    d = datetime.now()
-    request = requests.get('https://api.exchangeratesapi.io/latest?symbols=PLN')
-    print(request.text)
-    print(d.hour, ':', d.minute, ':', d.second)
-    duration = datetime.now() - d
-    print(duration.microseconds)
+    try:
+        d = datetime.now()
+        request = requests.get('https://api.exchangeratesapi.io/latest?symbols=PLN')
+        print(request.text)
+        print('Data i godzina: ', d.year, '.', d.month, '.', d.day, d.hour, ':', d.minute, ':', d.second)
+        duration = datetime.now() - d
+        print('Czas trwania zapytania :', duration.microseconds, 'ms')
+
+    except TimeoutException:
+        print('Timeout Exception')
+
 
 
 def decor(function):
     def inside_function():
         print('---------------------------')
-        time.sleep(15)
         return function
     return inside_function()
 
 
 while True:
     decor(exchange_rate_checker())
+    time.sleep(15)
