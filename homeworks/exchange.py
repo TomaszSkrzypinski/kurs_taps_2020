@@ -9,7 +9,8 @@ def exchange_rate_checker():
     try:
         d = datetime.now()
         request = requests.get('https://api.exchangeratesapi.io/latest?symbols=PLN')
-        print(request.text)
+        rate = request.json()
+        print(rate['rates'])
         print('Data i godzina: ', d.year, '.', d.month, '.', d.day, d.hour, ':', d.minute, ':', d.second)
         duration = datetime.now() - d
         print('Czas trwania zapytania :', duration.microseconds, 'ms')
