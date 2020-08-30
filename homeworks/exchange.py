@@ -19,7 +19,6 @@ def exchange_rate_checker():
         print('Timeout Exception')
 
 
-
 def decor(function):
     def inside_function():
         print('---------------------------')
