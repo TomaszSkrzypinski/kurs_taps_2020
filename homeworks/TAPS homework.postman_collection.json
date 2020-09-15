@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "homework_test post",
+			"name": "homework_test post GET",
 			"event": [
 				{
 					"listen": "test",
@@ -32,12 +32,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://jsonplaceholder.typicode.com/posts/1",
-					"protocol": "https",
+					"raw": "{{url}}/posts/1",
 					"host": [
-						"jsonplaceholder",
-						"typicode",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"posts",
@@ -48,7 +45,7 @@
 			"response": []
 		},
 		{
-			"name": "homework_test comment",
+			"name": "homework_test comment GET",
 			"event": [
 				{
 					"listen": "test",
@@ -74,15 +71,220 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://jsonplaceholder.typicode.com/comments/1",
-					"protocol": "https",
+					"raw": "{{url}}/comments/1",
 					"host": [
-						"jsonplaceholder",
-						"typicode",
-						"com"
+						"{{url}}"
 					],
 					"path": [
 						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test comment POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c0427e1-d46a-4873-9cd0-e332675e1f74",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test comment PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c0427e1-d46a-4873-9cd0-e332675e1f74",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test comment DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c0427e1-d46a-4873-9cd0-e332675e1f74",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test post POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccd0f916-e9cc-4959-94e0-43e677013663",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test post PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccd0f916-e9cc-4959-94e0-43e677013663",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "homework_test post DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccd0f916-e9cc-4959-94e0-43e677013663",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
 						"1"
 					]
 				}
