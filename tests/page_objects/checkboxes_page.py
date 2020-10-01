@@ -1,6 +1,6 @@
 from tests.helpers.support_functions import *
 
-checkbox_tab = 'checkboxes-header'
+checkbox_tab = 'checkbox-header'
 all_checkboxes = 'checkboxes'
 checkbox_1 = '//*[@id="checkboxes"]/input[1]'
 checkbox_2 = '//*[@id="checkboxes"]/input[2]'
@@ -22,3 +22,4 @@ def click_checkboxes(driver_instance):
     elem.click()
     elem1 = driver_instance.find_element_by_xpath(checkbox_2)
     elem1.click()
+
