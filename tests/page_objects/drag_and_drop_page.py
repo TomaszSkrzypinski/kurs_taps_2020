@@ -24,6 +24,6 @@ def drag_and_drop_square(driver_instance):
         while line:
             script += line
             line = js_file.readline()
-        driver_instance.execute_script(script + "$('column-a').simulateDragDrop({ dropTarget: 'column-b'});")
+        driver_instance.execute_script(script + "jQuery('#column-a').simulateDragDrop({ dropTarget: '#column-b'});")
     elem = driver_instance.find_element_by_xpath(result)
     print(elem.text)
