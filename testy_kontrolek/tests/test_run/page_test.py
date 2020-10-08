@@ -8,7 +8,12 @@ from testy_kontrolek.tests.page_objects import main_page, checkboxes_page, hover
 
 class Tests(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        #konfiguracja zdalnego drivera do pracy w selenium grid
+        self.selenium_grid_url = 'http://192.168.56.1:4445/wd/hub'
+        self.capabilities = webdriver.DesiredCapabilities.CHROME.copy()
+        self.driver = webdriver.Remote(desired_capabilities=self.capabilities, command_executor=self.selenium_grid_url)
+
+        #self.driver = webdriver.Chrome()
         self.url = TestSettings.page_url
         self.driver.get(self.url)
         self.driver.maximize_window()

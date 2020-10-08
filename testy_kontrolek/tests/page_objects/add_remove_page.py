@@ -30,7 +30,7 @@ def delete_element(driver_instance):
 
 def element_invisible(driver_instance):
     try:
-        wait_for_invisibility_of_element_by_xpath(driver_instance, added_element, time_to_wait=1)
+        wait_for_invisibility_of_element_by_xpath(driver_instance, added_element, time_to_wait=6)
         return True
     except NoSuchElementException:
         return False
